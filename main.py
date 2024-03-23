@@ -1,5 +1,5 @@
 from flask import Flask
-from api.router import index, get_items, add_item
+from api.router import add_item, get_items, index, sk_get
 
 app = Flask(__name__)
 
@@ -17,6 +17,11 @@ def get_items_route():
 @app.route("/additems", methods=["POST"])
 def add_item_route():
     return add_item()
+
+
+@app.route("/sk_get", methods=["POST"])
+def sk_get_route():
+    return sk_get()
 
 
 if __name__ == "__main__":

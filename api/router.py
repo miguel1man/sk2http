@@ -1,11 +1,13 @@
 import json
+import asyncio
 from flask import jsonify, request
+from api.sk_get import sk_process
 
 items = []
 
 
 def index():
-    return "Semantic Kernel API 0.0.1"
+    return "Semantic Kernel API 0.1"
 
 
 def get_items():
@@ -17,10 +19,10 @@ def add_item():
         return jsonify({"error": "Request must be JSON"}), 400
 
     data = request.get_json()
-    print(f"data received:\n{data}")
+    # print(f"\ndata received:\n{data}\n")
 
-    if isinstance(data, str):
-        print(f"data isinstance: {data}")
+    # if isinstance(data, str):
+    #     print(f"data isinstance: {data}")
 
     data_fixed = data.replace("'", '"')
     data_dict = json.loads(data_fixed)
@@ -36,3 +38,17 @@ def add_item():
     }
     items.append(item)
     return jsonify(data_dict), 201
+
+
+def sk_get():
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON"}), 400
+
+    data = request.get_json()
+    if "ask" not in data:
+        return jsonify({"error": "Missing 'ask' parameter"}), 400
+
+    ask = data["ask"]
+    # print(f"\nask received:\n{ask}\n")
+    result = asyncio.run(sk_process(ask))
+    return jsonify({"response": result}), 201
