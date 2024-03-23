@@ -19,7 +19,6 @@ def add_item():
         return jsonify({"error": "Request must be JSON"}), 400
 
     data = request.get_json()
-    # print(f"\ndata received:\n{data}\n")
 
     # if isinstance(data, str):
     #     print(f"data isinstance: {data}")
@@ -49,6 +48,5 @@ def sk_get():
         return jsonify({"error": "Missing 'ask' parameter"}), 400
 
     ask = data["ask"]
-    # print(f"\nask received:\n{ask}\n")
     result = asyncio.run(sk_process(ask))
     return jsonify({"response": result}), 201

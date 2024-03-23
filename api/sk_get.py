@@ -12,7 +12,6 @@ org_id = os.getenv("OPENAI_ORG_ID")
 
 
 async def sk_process(ask):
-    # print(f"\nask processed:\n{ask}\n")
     kernel = sk.Kernel()
     kernel.import_plugin_from_object(HttpPlugin(), "http")
 
