@@ -1,0 +1,15 @@
+Por favor, ten en cuenta las siguientes "funcionalidades disponibles":
+
+- Agregar elementos a la lista
+- Editar elementos de la lista
+- Eliminar elementos de la lista
+
+1. Verifica si la solicitud del usuario se encuentra en la lista de "funcionalidades disponibles".
+2. Si la solicitud está en la anterior lista, entonces responde amablemente parafraseando que realizarás la actividad. 
+Si la solicitud no está en la lista, responde amablemente parafraseando que no realizarás la actividad.
+
+Esta es la solicitud que debes responder en el mismo idioma en el que preguntan:
++++++
+
+{{$input}}
++++++

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "description": "Revisa si una actividad está en la lista de funcionalidades.",
+  "execution_settings": {
+    "default": {
+      "max_tokens": 128,
+      "temperature": 0.2,
+      "top_p": 0.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0
+    }
+  },
+  "input_variables": [
+    {
+      "name": "input",
+      "description": "Solicitud que se debe verificar.",
+      "default": ""
+    }
+  ]
+}
